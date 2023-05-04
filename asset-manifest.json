@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/order-food/static/css/main.52b63523.css",
-    "main.js": "/order-food/static/js/main.1ab8423a.js",
+    "main.css": "/order-food/static/css/main.464dbc23.css",
+    "main.js": "/order-food/static/js/main.c34f5480.js",
     "static/media/summaryImage.png": "/order-food/static/media/summaryImage.1869efe11eed99b0f914.png",
-    "static/media/Vector.svg": "/order-food/static/media/Vector.569f7d6b6e9520fb1d1b3c77ebb21b5e.svg",
+    "static/media/HeaderIcon.svg": "/order-food/static/media/HeaderIcon.569f7d6b6e9520fb1d1b3c77ebb21b5e.svg",
     "index.html": "/order-food/index.html",
-    "static/media/btnPlus.svg": "/order-food/static/media/btnPlus.f6449d6005345c09378ddf02e862b973.svg",
-    "main.52b63523.css.map": "/order-food/static/css/main.52b63523.css.map",
-    "main.1ab8423a.js.map": "/order-food/static/js/main.1ab8423a.js.map"
+    "static/media/btnPlus.svg": "/order-food/static/media/btnPlus.8c4f1e660740f081db95abf29cd7dd1b.svg",
+    "main.464dbc23.css.map": "/order-food/static/css/main.464dbc23.css.map",
+    "main.c34f5480.js.map": "/order-food/static/js/main.c34f5480.js.map"
   },
   "entrypoints": [
-    "static/css/main.52b63523.css",
-    "static/js/main.1ab8423a.js"
+    "static/css/main.464dbc23.css",
+    "static/js/main.c34f5480.js"
   ]
 }
