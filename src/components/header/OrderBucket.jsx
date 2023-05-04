@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { ReactComponent as BascketIcon } from "../../assets/icons/Vector.svg";
+import { ReactComponent as BascketIcon } from "../../assets/icons/HeaderIcon.svg";
 
 export const OrderBucket = ({ children }) => {
   return (

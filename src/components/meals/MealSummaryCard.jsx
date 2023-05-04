@@ -25,16 +25,19 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
-  width: 854px;
+  max-width: 854px;
+  width: 100%;
   height: 270px;
+
   background: #383838;
   box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.3);
   border-radius: 16px;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 36px 0;
+  padding: 36px 40px;
 
   h3 {
     font-weight: 600;

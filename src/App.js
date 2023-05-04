@@ -8,6 +8,7 @@ function App() {
       <Header />
       <MealSummary />
       <Meals />
+
     </div>
   );
 }
