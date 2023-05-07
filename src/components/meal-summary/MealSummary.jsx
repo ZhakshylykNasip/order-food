@@ -12,10 +12,9 @@ export const MealSummary = () => {
 
 const Container = styled.div`
   width: 100%;
-
-`
+  `
 const Image = styled.img`
   
 width: 100%;
-height: 432px;
+margin-top: 101px;
 `

@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../UI/Button";
 import { ReactComponent as PlusIcon } from "../../assets/icons/btnPlus.svg";
 import styled from "styled-components";
 
-export const MealItemForm = ({ inputId }) => {
+export const MealItemForm = ({ inputId, onAdd }) => {
+  const [amount, setAmount] = useState(1);
+  const changeHandler = (e) => {
+    setAmount(e.target.value);
+  };
+
+  const addItemHandler = () => {
+    onAdd(amount);
+  };
+  
   return (
     <Container>
       <InputBlock>
         <label htmlFor={inputId}>Amount </label>
-        <input type="number" id={inputId} min={1} defaultValue={1} />
+        <input
+          value={amount}
+          onChange={changeHandler}
+          type="number"
+          id={inputId}
+          min={1}
+        />
       </InputBlock>
-      <Button  icon={<PlusIcon />} >
+      <Button icon={<PlusIcon />} onClick={addItemHandler}>
         Add
       </Button>
     </Container>

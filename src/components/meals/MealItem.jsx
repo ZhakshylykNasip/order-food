@@ -1,17 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { MealItemForm } from "./MealItemForm";
-
+import { CartContext } from "../../store/cart-context";
 
 export const MealItem = ({ meal }) => {
+  const context = useContext(CartContext);
+
+  function addProduct(amount) {
+    const data = {
+      title: meal.title,
+      description: meal.description,
+      price: meal.price,
+      amount: +amount,
+      id:meal.id
+    };
+    context.addItem(data);
+  }
+
+
+
   return (
     <Container>
       <StyledMealItem>
-        <h4>{meal.product}</h4>
-        <p>{meal.title}</p>
-        <span>{meal.price}</span>
+        <h4>{meal.title}</h4>
+        <p>{meal.description}</p>
+        <span>$ {meal.price}</span>
       </StyledMealItem>
-      <MealItemForm inputId={meal.id} />
+      <MealItemForm inputId={meal.id} onAdd={addProduct} />
     </Container>
   );
 };
@@ -20,10 +35,9 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   border-bottom: 2px solid #d6d6d6;
-  :last-child{
+  :last-child {
     border-bottom: none;
   }
-  
 `;
 const StyledMealItem = styled.div`
   display: flex;
@@ -35,9 +49,7 @@ const StyledMealItem = styled.div`
     font-size: 18px;
     line-height: 27px;
     margin-top: 24px;
-    
   }
-  
 
   p {
     font-style: italic;

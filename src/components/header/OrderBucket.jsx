@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { ReactComponent as BascketIcon } from "../../assets/icons/HeaderIcon.svg";
+import { CartContext } from "../../store/cart-context";
 
-export const OrderBucket = ({ children }) => {
+export const OrderBucket = ({ children, onToggle }) => {
+  const context = useContext(CartContext);
+  const [animationClass, setAnimationClass] = useState("");
+
+  useEffect(() => {
+    setAnimationClass("bump");
+    const id = setTimeout(() => {
+      setAnimationClass("");
+    }, 300);
+
+    return () => {
+      clearTimeout(id);
+    };
+  }, [context.addItem]);
+
   return (
-    <Button>
+    <Button className={animationClass} onClick={onToggle}>
       <BascketIcon />
       <OrsedBucketTitle> {children} </OrsedBucketTitle>
-      <OrderBucketCount>7</OrderBucketCount>
+      <OrderBucketCount>{context.totalAmount}</OrderBucketCount>
     </Button>
   );
 };
@@ -27,6 +42,26 @@ const Button = styled.button`
   }
   &:active {
     background-color: #993108;
+  }
+  &.bump {
+    animation: bump 300ms ease-out;
+  }
+  @keyframes bump {
+    0% {
+      transform: scale(1);
+    }
+    10% {
+      transform: scale(0.9);
+    }
+    30% {
+      transform: scale(1.1);
+    }
+    50% {
+      transform: scale(1.15);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 `;
 const OrsedBucketTitle = styled.span`

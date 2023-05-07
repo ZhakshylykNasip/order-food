@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button } from "../UI/Button";
 import styled from "styled-components";
-import {ReactComponent as PlusIcon } from"../../assets/icons/btnPlus.svg"
-import {ReactComponent as MinesIcon } from"../../assets/icons/btnMines.svg"
+import { ReactComponent as PlusIcon } from "../../assets/icons/btnPlus.svg";
+import { ReactComponent as MinesIcon } from "../../assets/icons/btnMines.svg";
+import { CartContext } from "../../store/cart-context";
 
+export const BasketItem = ({ title, price, amount, id }) => {
+  const { incrementAmount, decrementAmount } =
+    useContext(CartContext);
 
-
-export const BasketItem = ({ title, price, amount }) => {
   return (
     <Container>
       <h4>{title}</h4>
@@ -16,12 +18,18 @@ export const BasketItem = ({ title, price, amount }) => {
           <span>x {amount} </span>
         </InformationBlock>
         <ButtonBlock>
-          <Button variant="outLine" borderRadius="squared" icon={<MinesIcon/>} >
-           
-          </Button>
-          <Button variant="outLine" borderRadius="squared" icon={<PlusIcon/>}>
-            
-          </Button>
+          <Button
+            variant="outLine"
+            borderRadius="squared"
+            icon={<MinesIcon />}
+            onClick={()=>decrementAmount(id)}
+          ></Button>
+          <Button
+            variant="outLine"
+            borderRadius="squared"
+            icon={<PlusIcon />}
+            onClick={()=> incrementAmount(id)}
+          ></Button>
         </ButtonBlock>
       </Content>
     </Container>

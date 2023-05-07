@@ -3,18 +3,18 @@ import styled from "styled-components";
 import { backdropElement, modalElement } from "../utils/constants";
 import { createPortal } from "react-dom";
 
-const Backdrop = ({ onCLose }) => {
-  return <StyledBackdrop onClick={onCLose}></StyledBackdrop>;
+const Backdrop = ({ onClose }) => {
+  return <StyledBackdrop onClick={onClose}></StyledBackdrop>;
 };
 
 const ModalContent = ({ children }) => {
   return <StyledModalContent> {children}</StyledModalContent>;
 };
 
-export const Modal = ({ children }) => {
+export const Modal = ({ children, onClose}) => {
   return (
     <>
-      {createPortal(<Backdrop />, backdropElement)}
+      {createPortal(<Backdrop onClose={onClose} />, backdropElement)}
       {createPortal(<ModalContent>{children}</ModalContent>, modalElement)}
     </>
   );
@@ -29,6 +29,7 @@ const StyledBackdrop = styled.div`
   z-index: 20;
   background-color: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(3px);
+  
 `;
 
 const StyledModalContent = styled.div`
