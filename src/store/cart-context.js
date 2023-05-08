@@ -98,7 +98,7 @@ const cartReducer = (state, action) => {
   }
   if (action.type === "DECREMENT") {
     const updatedDecItem = state.map((item) => {
-      if (item.id === action.payload && item.amount !==1 ) {
+      if (item.id === action.payload && item.amount !==0 ) {
         return {
           ...item,
           amount: item.amount - 1,

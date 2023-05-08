@@ -12,17 +12,22 @@ export const Basket = ({ onToggle }) => {
   return (
     <Modal onClose={onToggle}>
       <Content>
-        {DUMMY_ITEMS.length ? (
+        {cartItems.length ? (
           <FixedWidthContainer>
-            {cartItems.map((item) => (
-              <BasketItem
-                title={item.title}
-                price={item.price}
-                amount={item.amount}
-                id={item.id}
-                key={item.id}
-              />
-            ))}
+            {cartItems.map((item) => {
+              if(item.amount > 0){
+                return (
+                  <BasketItem
+                    title={item.title}
+                    price={item.price}
+                    amount={item.amount}
+                    id={item.id}
+                    key={item.id}
+                  />
+                )
+              }
+              return null
+            })}
           </FixedWidthContainer>
         ) : null}
 
